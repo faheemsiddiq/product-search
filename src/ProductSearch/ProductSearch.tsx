@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { InputField } from '../common/components/InputField/InputField'
+import { InputField } from '@components/InputField/InputField'
 import { useDebounce } from 'use-debounce'
-import { useGetProducts } from '../hooks/useGetProducts'
+import { useGetProducts } from '@hooks/useGetProducts'
 import { ProductCards } from '../ProductCards/ProductCards'
 
 export function ProductSearch() {
@@ -9,6 +9,7 @@ export function ProductSearch() {
   const [debouncedSearchedText] = useDebounce(searchedTexted, 250)
 
   const getProducts = useGetProducts(debouncedSearchedText)
+  console.log(!!getProducts.data)
 
   return (
     <main className="flex justify-center w-[100vw]">

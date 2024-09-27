@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { ProductCards } from './ProductCards'
-import { Product } from 'api/types'
+import { Product } from '../api/types'
 
 describe('ProductCards', () => {
   it('should render successfully', () => {

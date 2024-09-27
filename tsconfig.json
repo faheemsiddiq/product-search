@@ -20,9 +20,10 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "baseUrl": "./src",
     "paths": {
-      "@icons": ["common/icons/*"]
+      "@components/*": ["./src/common/components/*"],
+      "@icons/*": ["./src/common/icons/*"],
+      "@hooks/*": ["./src/hooks/*"]
     }
   },
   "include": ["src", "vite-env.d.ts"]
