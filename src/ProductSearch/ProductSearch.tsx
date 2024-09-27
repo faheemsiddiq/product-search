@@ -12,7 +12,7 @@ export function ProductSearch() {
 
   return (
     <main className="flex justify-center w-[100vw]">
-      <div className="flex flex-col h-screen items-center gap-4">
+      <div className="flex flex-col h-screen items-center gap-4 w-full">
         <div className="w-full sm:w-[48rem] px-8 pt-10 sm:pt-60">
           <InputField
             isLoading={getProducts.isLoading}
