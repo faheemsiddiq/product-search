@@ -1,4 +1,4 @@
-import { Product } from 'api/types'
+import { Product } from '../api/types'
 import { ProductCard } from './ProductCard/ProductCard'
 
 interface Props {
@@ -13,22 +13,18 @@ export function ProductCards(props: Props) {
   }
 
   return (
-    <>
-      {products && (
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {products.map(({ thumbnail, title, description, price }, key) => (
-              <ProductCard
-                key={key}
-                imageUrl={thumbnail}
-                title={title}
-                description={description}
-                price={price}
-              />
-            ))}
-          </div>
-        </div>
-      )}
-    </>
+    <div className="max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {products.map(({ thumbnail, title, description, price }, key) => (
+          <ProductCard
+            key={key}
+            imageUrl={thumbnail}
+            title={title}
+            description={description}
+            price={price}
+          />
+        ))}
+      </div>
+    </div>
   )
 }

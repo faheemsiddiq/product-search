@@ -1,0 +1,59 @@
+---
+name: Unit Test and Typecheck
+
+on: [push]
+
+jobs:
+  unit-test:
+    name: Unit Tests
+    runs-on: [self-hosted, Linux]
+
+    steps:
+      - name: Checkout ⬇️
+        uses: actions/checkout@v3
+
+      - name: Install node 🔧
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: setup cache 💾
+        uses: actions/cache@v3
+        id: cache
+        with:
+          path: node_modules/
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+
+      - name: Install deps 🛠️
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: yarn --frozen-lockfile
+
+      - name: Run tests and generate coverage report 🔨 📄
+        run: yarn run test:ci --maxWorkers=100%
+
+  typecheck:
+    name: Typecheck
+    runs-on: [self-hosted, Linux]
+
+    steps:
+      - name: Checkout ⬇️
+        uses: actions/checkout@v3
+
+      - name: Install node 🔧
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: setup cache 💾
+        uses: actions/cache@v3
+        id: cache
+        with:
+          path: node_modules/
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+
+      - name: Install deps 🛠️
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: yarn --frozen-lockfile
+
+      - name: Run typechecking on the codebase 📄 🟡
+        run: yarn run typecheck

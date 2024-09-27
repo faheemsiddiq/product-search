@@ -5,7 +5,9 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
+      '@components': '/src/common/components',
       '@icons': '/src/common/icons',
+      '@hooks': '/src/hooks',
     },
   },
   test: {
@@ -21,15 +23,8 @@ export default defineConfig({
         branches: 90,
         statements: 90,
       },
+      include: ['**/*.{ts,tsx}'],
+      exclude: ['**/*.config.{js,ts}', 'src/index.tsx', '**/{api,hooks}/*.ts'],
     },
-    include: ['src/**/*.test.{ts,tsx}'],
-    // exclude: [
-    //   '**/*.config.js',
-    //   'node_modules',
-    //   'src/index.tsx',
-    //   'src/api/',
-    //   'src/**/Loader',
-    //   'src/hooks',
-    // ],
   },
 })

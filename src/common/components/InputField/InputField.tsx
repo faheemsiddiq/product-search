@@ -36,13 +36,7 @@ export function InputField(props: Props) {
           (isLoading ? (
             <Loader />
           ) : (
-            <button
-              aria-label="clear-button"
-              onClick={() => {
-                console.log('elo')
-                setSearchText('')
-              }}
-            >
+            <button aria-label="clear-button" onClick={() => setSearchText('')}>
               <img src={crossIcon} />
             </button>
           ))}
