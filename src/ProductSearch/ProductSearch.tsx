@@ -19,9 +19,11 @@ export function ProductSearch() {
             onChange={setSearchedText}
           />
         </div>
-        <div className="flex-grow w-full sm:w-[48rem] px-8 mb-5 overflow-auto">
-          <ProductCards products={getProducts.data} />
-        </div>
+        {getProducts.data && (
+          <div className="flex-grow w-full sm:w-[48rem] px-8 mb-5 overflow-auto">
+            <ProductCards products={getProducts.data} />
+          </div>
+        )}
       </div>
     </main>
   )
