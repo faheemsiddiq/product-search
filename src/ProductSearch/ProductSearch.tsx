@@ -9,7 +9,6 @@ export function ProductSearch() {
   const [debouncedSearchedText] = useDebounce(searchedTexted, 250)
 
   const getProducts = useGetProducts(debouncedSearchedText)
-  console.log(!!getProducts.data)
 
   return (
     <main className="flex justify-center w-[100vw]">

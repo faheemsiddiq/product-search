@@ -12,8 +12,6 @@ type Props =
 export function ProductCard(props: Props) {
   const { title } = props
 
-  console.log('elo', title)
-
   if (title === null) {
     return (
       <div className="flex flex-row gap-6 p-5 bg-white border-2 border-blue-500 rounded-lg">
